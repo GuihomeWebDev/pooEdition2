@@ -3,7 +3,9 @@
  *la class Guerrier hérite de la class mére Personnage
  */
 class Guerrier extends Personnage{
+  private static $maxLife = 80;
   public $life = 80;
+  public $attack = 10;
   public $sword = 25;
   public $strength = 20;
   public $intelligence = 5;
@@ -22,7 +24,7 @@ class Guerrier extends Personnage{
   *methode qui permet au personnage de recupérer de la vie
   */
   public function regenerated(){
-    if ($this->life <= 20) {
+    if ($this->life < self::$maxLife) {
       $this->life += $this->heal;
   }else {
     echo "pourquoi boire une potion si tu es encore en forme???";

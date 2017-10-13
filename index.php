@@ -3,6 +3,7 @@
 require 'Personnage.php';
 require 'Magicien.php';
 require 'Guerrier.php';
+require 'Presentation.php';
 //instanciation de mes class
 $leodagan = new Guerrier("Leodagan");
 $merlin = new Magicien('Merlin');
@@ -10,8 +11,6 @@ $merlin = new Magicien('Merlin');
 var_dump($leodagan);
 //affiche les carracteristiques du magicien Merlin
 var_dump($merlin);
-//affiche les carracteristiques du personnage Guihome
-var_dump($guihome);
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,8 +20,10 @@ var_dump($guihome);
   </head>
   <body>
     <h1>Présentation des personnages</h1>
-    <p><?= $merlin->name ?></p>
+    <p><?= $merlin->name; ?></p>
+    <p><?php Presentation::getMagicien();?></p>
     <p><?= $leodagan->name ?></p>
+    <p><?php Presentation::getGuerrier(); ?></p>
     <h2>Intérraction des personnages</h2>
     <p><?= "Merlin cri.. ";?></p>
       <p><?= $merlin->yell();?></p>
@@ -37,6 +38,8 @@ var_dump($guihome);
                 <p><?= "Leodagan frappe Merlin avec son éppée "; ?></p>
                 <p><?php $leodagan->handOfGod($merlin); ?></p>
                 <p><?= "vie de merlin"." ".$merlin->life; ?></p>
+                <p><?= $leodagan->name." "." range son éppée... Attrape"." ".$merlin->name." "."et lui colle une patate" ?></p>
+                <p><?php $leodagan->punch($merlin) ?></p>
                 <h3>Fin du combat (dans quel état sont nos personnages)</h3>
                 <p><?= $merlin->death(); ?></p>
                 <p><?= $leodagan->death(); ?></p>

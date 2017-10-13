@@ -3,12 +3,12 @@
 *class mère qui ne peut etre instancier!!!!!!!
 */
 abstract class Personnage{
-/*
-*methode qui permet de passer le nom du personnage en parametre lors de l instanciation
-*/
-public function __construct($name){
-  $this->name = $name;
-}
+  /*
+  *methode qui permet de passer le nom du personnage en parametre lors de l instanciation
+  */
+  public function __construct($name){
+    $this->name = $name;
+  }
 /*
 *methode abstraite à definir dans les class filles qui permet au personnage de recupérer de la vie
 */

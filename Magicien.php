@@ -3,8 +3,10 @@
  *class Magicien qui herite de la class Personnage
  */
 class Magicien extends Personnage{
+  public static $maxLife = 50;
   public $life = 50;
   public $magic = 100;
+  public $attack = 10;
   public $fireBall =40;
   public $strength = 10;
   public $intelligence = 20;
@@ -12,6 +14,7 @@ class Magicien extends Personnage{
   public $heal = 25;
   public $name;
   public $target;
+
 // methode qui affiche le cri du magicien
   public function yell(){
     $shout= "VOUS NE PASSERAIS PAS...";
@@ -30,7 +33,7 @@ class Magicien extends Personnage{
     *methode qui permet au personnage de recupérer de la vie
     */
     public function regenerated(){
-      if ($this->life <= 25) {
+      if ($this->life < self::$maxLife) {
         $this->life += $this->heal;
     }else {
       echo "le sort ne fonctionne pas vous êtes encore en forme!!";
